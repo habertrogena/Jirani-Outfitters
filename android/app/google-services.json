@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "675896022017",
+    "project_id": "jirani-outfitters",
+    "storage_bucket": "jirani-outfitters.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675896022017:android:b6fa051a1f98882e705c00",
+        "android_client_info": {
+          "package_name": "com.example.jirani_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675896022017-3tkp0pa660durlac0c0h6dnfu1ur1ecu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNv5mAlD7ZD9xtOVuU5KGj-3w832nkDPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675896022017-3tkp0pa660durlac0c0h6dnfu1ur1ecu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
