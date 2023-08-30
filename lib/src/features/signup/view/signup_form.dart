@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jirani_mobile_app/src/features/signup/controller/signup_controller.dart';
 
 import '../../../constants/color.dart';
 import '../../../constants/sizes.dart';
@@ -9,9 +10,13 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // connect the app with the controller.
+    SignUpController signUpController = SignUpController();
+     final formKey = GlobalKey<FormState>();
+
     return Form(
       // key: controller.loginFormKey,
-      // key: formKey,
+      key: formKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
@@ -19,7 +24,7 @@ class SignUpForm extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
-              //controller: emailController,
+              controller: signUpController.fullName,
               onSaved: (value) {
                 //  controller.email = value!;
               },
@@ -40,7 +45,7 @@ class SignUpForm extends StatelessWidget {
               height: tFormHeight,
             ),
             TextFormField(
-              //controller: emailController,
+              controller: signUpController.email,
               onSaved: (value) {
                 //  controller.email = value!;
               },
@@ -62,7 +67,7 @@ class SignUpForm extends StatelessWidget {
             ),
             TextFormField(
               keyboardType: TextInputType.visiblePassword,
-              // controller: passwordController,
+              controller: signUpController.password,
               onSaved: (value) {
                 // controller.password = value!;
               },
@@ -93,18 +98,18 @@ class SignUpForm extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: tPrimaryColor,
-                minimumSize: const Size.fromHeight(50),
-              ),
-              onPressed: () {
-                // googleSignUp();
-              },
-              child: const Text(
-                'Sign Up With Google Account',
-              ),
-            ),
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: tPrimaryColor,
+            //     minimumSize: const Size.fromHeight(50),
+            //   ),
+            //   onPressed: () {
+            //     // googleSignUp();
+            //   },
+            //   child: const Text(
+            //     'Sign Up With Google Account',
+            //   ),
+            // ),
 
             //--SiGNUP  BUTTON
             const SizedBox(
@@ -116,7 +121,9 @@ class SignUpForm extends StatelessWidget {
                 minimumSize: const Size.fromHeight(50),
               ),
               onPressed: () {
-                // signUserIn();
+                signUpController.firebaseAuth.signUp(
+                    signUpController.email.text.trim(),
+                    signUpController.password.text.trim());
               },
               child: const Text(
                 'Sign Up',
